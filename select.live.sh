@@ -42,7 +42,7 @@ get_battery_soc() {
   local url="https://select.live/systems/list/owner?_=$timestamp"
 
   curl -s -H "accept: application/json" -H "Cookie: $cookies" "$url" \
-    | jq '.systems[0].last.battery_soc'
+    | jq -j '.systems[0].last.battery_soc'
 }
 
 # Entry point
